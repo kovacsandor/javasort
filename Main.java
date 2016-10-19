@@ -9,9 +9,12 @@ public class Main {
 	public static void main(String[] args) {
 
 		ArrayList<Type> types = new ArrayList<>();
+		
 		for (int i = 0; i < 100; i++) {
+			
 			int randomNumber1 = randomNumber();
 			int randomNumber2 = randomNumber();
+			
 			types.add(new Type(randomNumber1, randomNumber2, randomNumber1 + " " + randomNumber2));
 		}
 
@@ -21,13 +24,34 @@ public class Main {
 		}
 
 		System.out.println("-------------");
-
+		
+		/* ---------------------------------------
+		 * Egy tulajdonság szerinti sorba rendezés
+		 */
 		Collections.sort(types, new Comparator<Type>() {
 
 			@Override
 			public int compare(Type t1, Type t2) {
 
-				return (int) t1.param1 < t2.param1 ? -1 : 1;
+				return t1.param1 < t2.param1 ? -1 : 1;
+			}
+		});
+		
+		/* ---------------------------------------
+		 * Két tulajdonság szerinti sorba rendezés
+		 */
+		Collections.sort(types, new Comparator<Type>() {
+
+			@Override
+			public int compare(Type t1, Type t2) {
+
+				if (t1.param1 == t2.param1) {
+					
+					return t1.param2 < t2.param2 ? -1 : 1;
+				} else {
+					
+					return t1.param1 < t2.param1 ? -1 : 1;
+				}
 			}
 		});
 
