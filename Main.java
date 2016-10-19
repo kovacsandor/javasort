@@ -33,7 +33,7 @@ public class Main {
 			@Override
 			public int compare(Type t1, Type t2) {
 
-				return t1.param1 < t2.param1 ? -1 : 1;
+				return t1.param1 - t2.param1;
 			}
 		});
 		
@@ -47,10 +47,10 @@ public class Main {
 
 				if (t1.param1 == t2.param1) {
 					
-					return t1.param2 < t2.param2 ? -1 : 1;
+					return t1.param2 - t2.param2;
 				} else {
 					
-					return t1.param1 < t2.param1 ? -1 : 1;
+					return t1.param1 - t2.param1;
 				}
 			}
 		});
